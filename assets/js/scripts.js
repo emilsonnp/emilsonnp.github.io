@@ -3,6 +3,8 @@ const rootHtml = document.documentElement
 const accordionHeaders = document.querySelectorAll(".accordion__header");
 const menuLinks = document.querySelectorAll(".menu__link");
 
+window.onload = getThemeFromLocalStorage
+
 function changeTheme(){
   const currentTheme = rootHtml.getAttribute("data-theme");
 
@@ -10,7 +12,10 @@ function changeTheme(){
 
   toggleTheme.classList.toggle("bi-sun")
   toggleTheme.classList.toggle("bi-moon-stars")
+  saveThemeToLocalStorage(rootHtml.getAttribute("data-theme"));
+ 
 }
+ 
 
 toggleTheme.addEventListener("click", changeTheme);
 
@@ -29,3 +34,12 @@ menuLinks.forEach(item => {
     item.classList.add("active");
   })
 })
+
+function saveThemeToLocalStorage(theme) {
+  localStorage.setItem("data-theme", JSON.stringify(theme));
+}
+
+function getThemeFromLocalStorage() {
+  const dataTheme = localStorage.getItem("data-theme");
+  changeTheme(JSON.parse(dataTheme));
+}
