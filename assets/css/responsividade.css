@@ -1,5 +1,8 @@
 /* Responsividade */
 
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@200;400&display=swap');
+
 @media (min-width: 768px) {
   .header {
     position: fixed;
