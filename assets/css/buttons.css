@@ -33,3 +33,11 @@
 .btn--primary {
   border: 1px solid var(--primary-color);
 }
+
+.btn--secondary {
+  border: 1px solid var(--primary-color);
+}
+
+.btn--secondary span {
+  color: var(--primary-color);
+}
