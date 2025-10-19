@@ -46,7 +46,7 @@ function getThemeFromLocalStorage() {
   if (dataTheme) {
     rootHtml.setAttribute("data-theme", dataTheme);
 
-    // Ajustar ícone conforme o tema salvo
+// Ajustar ícone conforme o tema salvo
     if (dataTheme === "dark") {
       toggleTheme.classList.remove("bi-sun");
       toggleTheme.classList.add("bi-moon-stars");
