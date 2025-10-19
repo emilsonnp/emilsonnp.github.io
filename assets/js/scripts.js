@@ -12,6 +12,7 @@ function changeTheme(){
 
   toggleTheme.classList.toggle("bi-sun")
   toggleTheme.classList.toggle("bi-moon-stars")
+
   saveThemeToLocalStorage(rootHtml.getAttribute("data-theme"));
  
 }
@@ -40,6 +41,18 @@ function saveThemeToLocalStorage(theme) {
 }
 
 function getThemeFromLocalStorage() {
-  const dataTheme = localStorage.getItem("data-theme");
-  changeTheme(JSON.parse(dataTheme));
+  const dataTheme = JSON.parse(localStorage.getItem("data-theme"));
+
+  if (dataTheme) {
+    rootHtml.setAttribute("data-theme", dataTheme);
+
+    // Ajustar ícone conforme o tema salvo
+    if (dataTheme === "dark") {
+      toggleTheme.classList.remove("bi-sun");
+      toggleTheme.classList.add("bi-moon-stars");
+    } else {
+      toggleTheme.classList.remove("bi-moon-stars");
+      toggleTheme.classList.add("bi-sun");
+    }
+  }
 }
